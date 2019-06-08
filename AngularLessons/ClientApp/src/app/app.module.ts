@@ -8,6 +8,8 @@ import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomePageComponent } from './home-page/home-page.component';
 
+import { JsonSampleService } from './json-sample.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +24,7 @@ import { HomePageComponent } from './home-page/home-page.component';
       { path: '', component: HomePageComponent, pathMatch: 'full' }
     ])
   ],
-  providers: [],
+  providers: [JsonSampleService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
