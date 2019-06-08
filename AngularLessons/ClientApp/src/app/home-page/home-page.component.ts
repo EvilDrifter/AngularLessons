@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { JsonSampleService } from '../json-sample.service';
 
 @Component({
   selector: 'app-home-page',
@@ -6,10 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent implements OnInit {
+  domModel: IDomNode;
 
-  constructor() { }
+  constructor(private service: JsonSampleService) { }
 
   ngOnInit() {
   }
 
+  GetJsonData() {
+  this.service.GetJsonFileFromApi()
+      .subscribe(x => {
+          this.domModel = x;
+      });
+  }
 }
