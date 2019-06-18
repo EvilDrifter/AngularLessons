@@ -7,19 +7,24 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomePageComponent } from './home-page/home-page.component';
+import { CinematableComponent } from './cinematable/cinematable.component';
+import { FilmitemComponent } from './filmitem/filmitem.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavMenuComponent,
-    HomePageComponent
+    HomePageComponent,
+    CinematableComponent,
+    FilmitemComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot([
-      { path: '', component: HomePageComponent, pathMatch: 'full' }
+      { path: '', component: CinematableComponent, pathMatch: 'full' },
+      { path: 'film', component: FilmitemComponent },
     ])
   ],
   providers: [],
