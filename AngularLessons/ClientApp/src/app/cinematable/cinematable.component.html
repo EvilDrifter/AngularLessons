@@ -1,3 +1,4 @@
+<button type="button" class="btn btn-light" (click)="addItem()">Light</button>
 <table class="table">
   <thead>
     <tr>
@@ -8,7 +9,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let film of films">
+    <tr *ngFor="let film of films" (click)="selectedItem(film.id)">
       <th scope="row">{{ film.id }}</th>
       <td>{{ film.title }}</td>
       <td>{{ film.rating }}</td>

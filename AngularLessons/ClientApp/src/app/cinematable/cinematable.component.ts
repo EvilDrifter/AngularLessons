@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CinemaFilm } from '../model/CinemaFilm';
+import { Router } from '@angular/router';
+import { CinemaService } from '../cinema.service';
 
 @Component({
   selector: 'app-cinematable',
@@ -7,20 +9,24 @@ import { CinemaFilm } from '../model/CinemaFilm';
   styleUrls: ['./cinematable.component.css']
 })
 export class CinematableComponent implements OnInit {
-
   films: Array<CinemaFilm>;
 
-  constructor() {
-    this.films = new Array<CinemaFilm>();
-
-    this.films.push(new CinemaFilm(1, "title1", "rating1", "description1"));
-    this.films.push(new CinemaFilm(2, "title2", "rating2", "description2"));
-    this.films.push(new CinemaFilm(3, "title3", "rating3", "description3"));
-    this.films.push(new CinemaFilm(4, "title4", "rating4", "description4"));
-    this.films.push(new CinemaFilm(5, "title5", "rating5", "description5"));
+  constructor(private router: Router, private service: CinemaService) {
+    this.service.getAllItems().subscribe(result => {
+      this.films = result;
+    });
   }
 
   ngOnInit() {
+  }
+
+  addItem() {
+    this.films.push(new CinemaFilm(this.films.length, "title6", "rating6", "description6"));
+  }
+
+  selectedItem(id: number) {
+    console.log(id);
+    this.router.navigate([`/film/${id}`]);
   }
 
 }

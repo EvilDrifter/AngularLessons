@@ -9,6 +9,7 @@ import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { CinematableComponent } from './cinematable/cinematable.component';
 import { FilmitemComponent } from './filmitem/filmitem.component';
+import { CinemaService } from './cinema.service';
 
 @NgModule({
   declarations: [
@@ -24,10 +25,10 @@ import { FilmitemComponent } from './filmitem/filmitem.component';
     FormsModule,
     RouterModule.forRoot([
       { path: '', component: CinematableComponent, pathMatch: 'full' },
-      { path: 'film', component: FilmitemComponent },
+      { path: 'film/:id', component: FilmitemComponent },
     ])
   ],
-  providers: [],
+  providers: [CinemaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
