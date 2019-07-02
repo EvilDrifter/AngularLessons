@@ -30,5 +30,12 @@ namespace AngularLessons.Controllers
             return result;
         }
 
+        [HttpGet("action")]
+        [Route("get/{id}")]
+        public CinemaFilm GetItem(int id)
+        {
+            return result.FirstOrDefault(x=>x.Id == id);
+        }
+
     }
 }

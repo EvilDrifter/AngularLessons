@@ -13,4 +13,8 @@ export class CinemaService {
   getAllItems(): Observable<CinemaFilm[]> {
     return this.http.get<Array<CinemaFilm>>('api/Cinema/getall');
   }
+
+  get(id: number): Observable<CinemaFilm> {
+    return this.http.get<CinemaFilm>(`api/Cinema/get/${id}`);
+  }
 }
